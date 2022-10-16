@@ -1,0 +1,27 @@
+/*
+ * GccApplication8.c
+ *
+ * Created: 07-09-2022 19:43:06
+ * Author : Admin
+ */ 
+
+#include <avr/io.h>
+#define F_CPU 4000000UL
+#include <util./delay.h>
+
+int main(void)
+{
+    DDRB=0xFF; //pin activation input
+    while (1) 
+    {
+		if( PINB & 0b00000000)// all pins in off condition
+		{
+			PORTB=0b00000000;
+		}
+		if(PINB & 0b00000001)// PB0 in on condition
+		{
+			PORTB=0b00000001;
+		}
+    }
+}
+
